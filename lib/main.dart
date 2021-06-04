@@ -5,14 +5,15 @@ void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
   void playSound(int soundNumber) {
-    final player = AudioCache();
+    final player = AudioPlayer();
     player.play('note$soundNumber.wav');
   }
 
   Expanded buildKey({Color color, int soundNumber}) {
     return Expanded(
-      child: BackButton(
-        color: color,
+      child: TextButton(
+        child: Text(''),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(color)),
         onPressed: () {
           playSound(soundNumber);
           print('click');
